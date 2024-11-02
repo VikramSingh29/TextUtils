@@ -104,25 +104,25 @@ export default function Form(props) {
         </div>
         <div className="row" style={{color:props.mode==='dark'?'white':'black'}}>
           <div className="column" >
-            <button className={`btn btn-outline-${props.btncolor} mx-1`} onClick={toUpperCase} >
+            <button disabled={text.length===0} className={`btn btn-outline-${props.btncolor} mx-1 my-1`} onClick={toUpperCase} >
               Change to UpperCase
             </button>
-            <button className={`btn btn-outline-${props.btncolor} mx-1`} onClick={toLowerCase}>
+            <button disabled={text.length===0} className={`btn btn-outline-${props.btncolor} mx-1 my-1`} onClick={toLowerCase}>
               Change to LowerCase
             </button>
 
-            <button className={`btn btn-outline-${props.btncolor} mx-1`} onClick={toClear}>
+            <button disabled={text.length===0} className={`btn btn-outline-${props.btncolor} mx-1 my-1`} onClick={toClear}>
               Clear Text
             </button>
-            <button
-              className={`btn btn-outline-${props.btncolor} mx-1`}
+            <button 
+              className={`btn btn-outline-${props.btncolor} mx-1 my-1`}
               id="undoButton"
               onClick={toUndo}
             >
               Undo Text
             </button>
-            <button
-              className={`btn btn-outline-${props.btncolor} mx-1`}
+            <button disabled={text.length===0}
+              className={`btn btn-outline-${props.btncolor} mx-1 my-1`}
               onClick={toRemoveExtraSpace}
             >
              Remove Extra Space
@@ -156,9 +156,9 @@ export default function Form(props) {
       <div className="container my-5" style={{color:props.mode==='dark'?'white':'black'}} >
         <h2 className="my-4">Your Text Summary</h2>
         <p className="">
-          {text.length} Characters and {text.split(" ").length} Words
+          {text.length} Characters and {text.split(" ").filter((elem)=>{return elem.length!==0}).length} Words
         </p>
-        <p>{0.008 * text.split(" ").length} minutes to read</p>
+        <p>{0.008 * text.split(" ").filter((elem)=>{return elem.length!==0}).length} minutes to read</p>
       </div>
     </>
   );

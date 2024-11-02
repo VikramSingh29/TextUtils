@@ -45,6 +45,8 @@ function App() {
       <Alert alert={alert} />
       <div className="container my-5">
         <Routes>
+        
+
           <Route path="/" element={<Form heading="Enter Your Text Below" mode={mode} btncolor={btncolor} showAlert={showAlert} />} />
           <Route path="/about" element={<About />} />
         </Routes>
